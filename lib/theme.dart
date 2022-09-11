@@ -15,6 +15,6 @@ ThemeData getThemeData() {
       ),
     ),
 
-    scaffoldBackgroundColor: accentColor,
+    scaffoldBackgroundColor: Colors.white,
   );
 }
