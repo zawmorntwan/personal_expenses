@@ -15,6 +15,21 @@ ThemeData getThemeData() {
       ),
     ),
 
+    // Scaffold
     scaffoldBackgroundColor: Colors.white,
+
+    // Elevated Button
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(primaryColor),
+      ),
+    ),
+
+    // Text Button
+    textButtonTheme: TextButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.all(primaryColor),
+      ),
+    ),
   );
 }
