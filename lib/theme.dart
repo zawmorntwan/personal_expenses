@@ -3,6 +3,7 @@ import 'package:flutter_complete_guide/constants.dart';
 
 ThemeData getThemeData() {
   return ThemeData(
+    // primaryColor: primaryColor,
     // Font
     fontFamily: 'Quicksand',
 
@@ -40,6 +41,9 @@ ThemeData getThemeData() {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all(primaryColor),
+        textStyle: MaterialStateProperty.all(
+          TextStyle(fontFamily: 'Quicksand'),
+        ),
       ),
     ),
 
@@ -47,6 +51,13 @@ ThemeData getThemeData() {
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
         foregroundColor: MaterialStateProperty.all(primaryColor),
+        textStyle: MaterialStateProperty.all(
+          TextStyle(
+            fontFamily: 'OpenSans',
+            fontWeight: FontWeight.bold,
+            fontSize: 16
+          ),
+        ),
       ),
     ),
 
