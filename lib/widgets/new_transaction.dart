@@ -25,6 +25,8 @@ class _NewTranscationState extends State<NewTranscation> {
       enteredTitle,
       enteredAmount,
     );
+
+    Navigator.of(context).pop();
   }
 
   @override

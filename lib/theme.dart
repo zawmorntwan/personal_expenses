@@ -3,6 +3,23 @@ import 'package:flutter_complete_guide/constants.dart';
 
 ThemeData getThemeData() {
   return ThemeData(
+    // Font
+    fontFamily: 'Quicksand',
+
+    // Text
+    textTheme: ThemeData.light().textTheme.copyWith(
+          titleMedium: TextStyle(
+            fontFamily: 'OpenSans',
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+          titleLarge: TextStyle(
+            fontFamily: 'OpenSans',
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
+        ),
+
     // App bar
     appBarTheme: AppBarTheme(
       centerTitle: false,
@@ -10,7 +27,8 @@ ThemeData getThemeData() {
       backgroundColor: primaryColor,
       titleTextStyle: TextStyle(
         color: accentColor,
-        fontSize: 18,
+        fontSize: 20,
+        fontFamily: 'OpenSans',
         fontWeight: FontWeight.bold,
       ),
     ),
@@ -31,5 +49,9 @@ ThemeData getThemeData() {
         foregroundColor: MaterialStateProperty.all(primaryColor),
       ),
     ),
+
+    // Floating action button
+    floatingActionButtonTheme:
+        FloatingActionButtonThemeData(backgroundColor: primaryColor),
   );
 }
