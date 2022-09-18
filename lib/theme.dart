@@ -4,6 +4,7 @@ import 'package:flutter_complete_guide/constants.dart';
 ThemeData getThemeData() {
   return ThemeData(
     // primaryColor: primaryColor,
+    errorColor: warnningColor,
     // Font
     fontFamily: 'Quicksand',
 
@@ -16,6 +17,12 @@ ThemeData getThemeData() {
           ),
           titleLarge: TextStyle(
             fontFamily: 'OpenSans',
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+          ),
+          bodyLarge: TextStyle(
+            fontFamily: 'OpenSans',
+            color: primaryColor,
             fontWeight: FontWeight.bold,
             fontSize: 20,
           ),
