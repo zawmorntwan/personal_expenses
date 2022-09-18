@@ -26,6 +26,11 @@ ThemeData getThemeData() {
             fontWeight: FontWeight.bold,
             fontSize: 20,
           ),
+          bodyMedium: TextStyle(
+            fontFamily: 'OpenSans',
+            // color: primaryColor,
+            fontSize: 16,
+          ),
         ),
 
     // App bar
@@ -60,10 +65,9 @@ ThemeData getThemeData() {
         foregroundColor: MaterialStateProperty.all(primaryColor),
         textStyle: MaterialStateProperty.all(
           TextStyle(
-            fontFamily: 'OpenSans',
-            fontWeight: FontWeight.bold,
-            fontSize: 16
-          ),
+              fontFamily: 'OpenSans',
+              fontWeight: FontWeight.bold,
+              fontSize: 16),
         ),
       ),
     ),
