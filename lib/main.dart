@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/theme.dart';
 import 'package:flutter_complete_guide/widgets/chart.dart';
@@ -98,6 +100,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
     final isLandscape =
         MediaQuery.of(context).orientation == Orientation.landscape;
 
@@ -116,9 +119,9 @@ class _HomePageState extends State<HomePage> {
     );
 
     final txListWidget = Container(
-      height: (MediaQuery.of(context).size.height -
+      height: (mediaQuery.size.height -
               appBar.preferredSize.height -
-              MediaQuery.of(context).padding.top) *
+              mediaQuery.padding.top) *
           0.75,
       child: TransactionList(_userTransactions, _deleteTransaction),
     );
@@ -137,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                     'Show chart',
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
-                  Switch(
+                  Switch.adaptive(
                     value: _showChart,
                     onChanged: (val) {
                       setState(
@@ -151,9 +154,9 @@ class _HomePageState extends State<HomePage> {
               ),
             if (!isLandscape)
               Container(
-                height: (MediaQuery.of(context).size.height -
+                height: (mediaQuery.size.height -
                         appBar.preferredSize.height -
-                        MediaQuery.of(context).padding.top) *
+                        mediaQuery.padding.top) *
                     0.25,
                 child: Chart(_recentTransactions),
               ),
@@ -161,9 +164,9 @@ class _HomePageState extends State<HomePage> {
             if (isLandscape)
               _showChart
                   ? Container(
-                      height: (MediaQuery.of(context).size.height -
+                      height: (mediaQuery.size.height -
                               appBar.preferredSize.height -
-                              MediaQuery.of(context).padding.top) *
+                              mediaQuery.padding.top) *
                           0.7,
                       child: Chart(_recentTransactions),
                     )
@@ -172,8 +175,8 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: isLandscape
-          ? null
+      floatingActionButton: Platform.isIOS
+          ? Container()
           : FloatingActionButton(
               onPressed: () => _startAddNewTransaction(context),
               child: Icon(Icons.add),
