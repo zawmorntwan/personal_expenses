@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/constants.dart';
 import 'package:flutter_complete_guide/widgets/chart_bar.dart';
 import 'package:intl/intl.dart';
 import '../models/transaction.dart';
@@ -43,7 +42,7 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(groupedTransactionValues.toString());
+    // print(groupedTransactionValues.toString());
     return Card(
       elevation: 6,
       margin: EdgeInsets.all(20),

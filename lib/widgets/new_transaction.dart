@@ -1,4 +1,10 @@
+import 'dart:developer';
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/constants.dart';
+import 'package:flutter_complete_guide/widgets/adaptive_text_button.dart';
 import 'package:intl/intl.dart';
 
 class NewTranscation extends StatefulWidget {
@@ -100,10 +106,10 @@ class _NewTranscationState extends State<NewTranscation> {
                           : 'Picked date : ${DateFormat.yMMMMd().format(_selectedDate!)}',
                       style: TextStyle(fontFamily: 'OpenSans'),
                     ),
-                    TextButton(
-                      onPressed: _presentDatePicker,
-                      child: Text('Choose date'),
-                    )
+                    AdaptiveTextButton(
+                      text: 'Choose Date',
+                      handler: _presentDatePicker,
+                    ),
                   ],
                 ),
               ),

@@ -7,3 +7,5 @@ const Color warnningColor = Color(0xffECBAD0);
 const Color highLightColor = Color(0xffF2E2B8);
 
 const String currency = '\$';
+
+const String appName = 'Personal Expenses';

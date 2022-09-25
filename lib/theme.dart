@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/constants.dart';
 
@@ -75,5 +76,12 @@ ThemeData getThemeData() {
     // Floating action button
     floatingActionButtonTheme:
         FloatingActionButtonThemeData(backgroundColor: primaryColor),
+  );
+}
+
+CupertinoThemeData getCupertinoTheme() {
+  return CupertinoThemeData(
+    primaryColor: primaryColor,
+    
   );
 }

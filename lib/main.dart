@@ -1,6 +1,8 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/constants.dart';
 import 'package:flutter_complete_guide/theme.dart';
 import 'package:flutter_complete_guide/widgets/chart.dart';
 import 'package:flutter_complete_guide/widgets/new_transaction.dart';
@@ -21,12 +23,19 @@ void main() {
 
 class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: getThemeData(),
-      home: HomePage(),
-      debugShowCheckedModeBanner: false,
-    );
+    return Platform.isIOS
+        ? CupertinoApp(
+            title: appName,
+            theme: getCupertinoTheme(),
+            home: HomePage(),
+            debugShowCheckedModeBanner: false,
+          )
+        : MaterialApp(
+            title: appName,
+            theme: getThemeData(),
+            home: HomePage(),
+            debugShowCheckedModeBanner: false,
+          );
   }
 }
 
@@ -126,9 +135,8 @@ class _HomePageState extends State<HomePage> {
       child: TransactionList(_userTransactions, _deleteTransaction),
     );
 
-    return Scaffold(
-      appBar: appBar,
-      body: SingleChildScrollView(
+    final pageBody = SafeArea(
+      child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -174,13 +182,30 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Platform.isIOS
-          ? Container()
-          : FloatingActionButton(
-              onPressed: () => _startAddNewTransaction(context),
-              child: Icon(Icons.add),
-            ),
     );
+
+    return Platform.isIOS
+        ? CupertinoPageScaffold(
+            child: pageBody,
+            navigationBar: CupertinoNavigationBar(
+              middle: Text('Personal Expenses'),
+              trailing: GestureDetector(
+                onTap: () => _startAddNewTransaction(context),
+                child: Icon(CupertinoIcons.add),
+              ),
+            ),
+          )
+        : Scaffold(
+            appBar: appBar,
+            body: pageBody,
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerFloat,
+            floatingActionButton: Platform.isIOS
+                ? Container()
+                : FloatingActionButton(
+                    onPressed: () => _startAddNewTransaction(context),
+                    child: Icon(Icons.add),
+                  ),
+          );
   }
 }
